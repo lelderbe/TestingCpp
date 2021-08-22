@@ -10,3 +10,8 @@ Sample::~Sample(void) {
 	std::cout << "Destructor called" << std::endl;
 	return ;
 }
+
+void	Sample::f(void) {
+	std::cout << "member function f() called" << std::endl;
+	return ;
+}
