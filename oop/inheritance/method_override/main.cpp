@@ -1,38 +1,37 @@
 #include <iostream>
  
-class Parent
-{
+class A {
 protected:
-    int m_value;
- 
+    int value;
+
 public:
-    Parent(int value)
-        : m_value(value)
-    {
-		identify();
-    }
+    A(int value) : value(value) {
+//		id();
+	}
 
 //private: 
-    void identify() { std::cout << "I am a Parent!\n"; }
+    virtual void id() { std::cout << "I am a class A!\n"; }
 };
  
-class Child : public Parent
-{
+class B : public A {
+
 public:
-    Child(int value)
-        : Parent(value)
-    {
-		identify();
-    }
+    B(int value) : A(value) {
+//		id();
+	}
+    
+	void	id() { std::cout << "I am a class B!\n"; }
 };
+
+int main(void) {
+    A *a = new A(6);
+    a->id();
  
-int main()
-{
-    Parent parent(6);
-    //parent.identify();
- 
-    Child child(8);
-    //child.identify();
+    B *b = new B(8);
+    b->id();
+
+	A *a2 = new B(1);
+	a2->id();
  
     return 0;
 }
